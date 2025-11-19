@@ -1,0 +1,11 @@
+id,name,city,description,amenities,price_per_night,rating
+1,Hotel Sol,Barcelona,"Modern hotel near the beach and close to nightlife.","pool,wifi,breakfast,bar",180,8.7
+2,Old Town Suites,Barcelona,"Quiet apartments in the historic city center, ideal for couples.","wifi,kitchen,air conditioning",150,9.1
+3,Seaside Hostel,Barcelona,"Budget-friendly hostel with dorms, popular with backpackers.","wifi,shared kitchen,lockers",45,8.0
+4,Business Plaza Hotel,Madrid,"Business-oriented hotel near the financial district.","wifi,breakfast,gym,conference room",140,8.3
+5,Park View Inn,Barcelona,"Overlooks a large park, family-friendly with spacious rooms.","wifi,breakfast,parking",130,8.5
+6,Nightlife Central Hotel,Barcelona,"Lively hotel surrounded by clubs and bars, good for nightlife.","wifi,bar,late check-out",160,8.2
+7,Beachfront Resort,Barcelona,"Resort directly on the beach with multiple pools.","pool,wifi,spa,breakfast,bar",230,9.0
+8,Country House B&B,Girona,"Cozy bed and breakfast in the countryside, very quiet.","breakfast,parking,garden",95,8.9
+9,Airport Express Hotel,Barcelona,"Convenient option close to the airport with shuttle service.","wifi,shuttle,breakfast",110,8.1
+10,Gothic Quarter Budget,Barcelona,"Basic rooms in the Gothic Quarter, excellent central location.","wifi",70,7.8

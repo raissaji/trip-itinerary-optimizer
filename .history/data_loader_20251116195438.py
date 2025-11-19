@@ -1,0 +1,4 @@
+import pandas as pandas
+
+def load_hotels(csv)
+
