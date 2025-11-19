@@ -11,4 +11,4 @@ def rank_by_expense(df_top: pd.DataFrame, budget: float) -> pd.DataFrame:
         ["budget_diff", "price_per_night", "rating"],
         ascending=[True, True, False]
     )
-    return df.reset_index(drop=True)
+    return df.reset_index(drop=True
