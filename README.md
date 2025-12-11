@@ -80,13 +80,28 @@ This may evolve as we implement, but our current plan:
 ```text
 trip-itinerary-optimizer/
 ├── data/                   # Raw / processed travel data
-├── notebooks/              # Experiments and prototyping
 ├── src/
 │   ├── retrieval/          # IR & similarity code (Part 1)
-│   ├── optimization/       # Itinerary optimization (Part 2)
+│   ├── optimizer/          # Itinerary optimization (Part 2)
 │   ├── models/             # ML models, embeddings, etc.
+│   ├── main/               # Prompt for user query and generating itinerary
 │   ├── interface/          # CLI / web frontend
 │   └── utils/              # Shared helpers
 ├── tests/                  # Unit tests
-├── README.md               # (this file)
+├── README.md               # This file
 └── requirements.txt        # Python dependencies
+```
+
+---
+
+## Prerequisites
+• Python 3.11 is required
+## Installing
+Clone the repo on your machine
+```
+git clone https://github.com/raissaji/trip-itinerary-optimizer.git
+```
+Install requirements
+```
+pip install -r requirements.txt
+```
