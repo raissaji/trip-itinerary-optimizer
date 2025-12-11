@@ -1,8 +1,8 @@
-# Trip Itinerary Optimizer
+# Southern Italy Trip Itinerary Optimizer
 
 **CS 4701: Practicum in Artificial Intelligence**
 
-A smart trip planner that combines **information retrieval**, **machine learning**, and **optimization** to build travel itineraries that match a user’s preferences (budget, activities, dates, etc.) while trying to minimize cost and maximize “fun.”
+A smart trip planner that combines **information retrieval**, **natural language processing**, and **optimization** to build travel itineraries for Southern Italy that match a user’s preferences (accommodation, activities, food) while staying within budget and maximizing fun (how well the itinerary matches the user's preferences).
 
 ---
 
@@ -12,9 +12,9 @@ Planning a trip is annoying: you have to search for activities, lodging, restaur
 
 Our goal is to build a system that:
 
-1. Takes a **user profile + preferences** (destination, dates, budget, interests, travel style, etc.).
-2. Finds **relevant trip options** (activities, attractions, lodging, flights, etc.) from a data source.
-3. Uses **AI + optimization** to assemble one or more **candidate itineraries** that best match the user’s needs.
+1. Takes a **user profile + preferences** (destination, budget, interests, travel style, etc.).
+2. Finds **relevant trip options** (activities, attractions, lodging, food, etc.) from various datasets.
+3. Uses **AI/ML + optimization** to assemble one or more **candidate itineraries** that best match the user’s needs.
 
 The project is split into two main parts:
 
@@ -25,27 +25,22 @@ The project is split into two main parts:
 
 ## Part 1: Information Retrieval
 
-Given a user query with `n` features (destination, dates, budget range, activity type, etc.), we:
+Given a user query with `4` features (accommodation style, activities, food preferences, budget range), we:
 
-1. Represent the query and candidate trip items as vectors.
-2. Compute similarity between the query and items.
-3. Return the most relevant options to feed into the optimization stage.
+1. Embed the query and datasets as vectors.
+2. Compute similarity between the query and datasets.
+3. Return the most relevant options, above an arbitrary threshold, to feed into the optimization stage.
 
-Planned techniques:
+Planned AI/ML tools and frameworks:
 
-- Text preprocessing and vectorization  
+- Text preprocessing and vectorization using Sentence-BERT (SBERT)
 - Similarity measures:
   - Jaccard similarity
   - Cosine similarity
-- Machine learning methods:
-  - SVD-based embeddings
-  - k-Nearest Neighbors search / classifiers
 
-Potential data sources (subject to terms of service and feasibility):
+Data sources:
 
-- Public travel datasets
-- Online travel/review platforms (e.g., TripAdvisor-style data)
-- Synthetic data we generate if needed
+- Generated through OpenAI Deep Research
 
 ---
 
@@ -53,11 +48,11 @@ Potential data sources (subject to terms of service and feasibility):
 
 Once we have a set of candidate trip options, we want to construct **day-by-day itineraries** that:
 
-- Respect the **user’s constraints** (budget, dates, opening hours, travel time).
+- Respect the **user’s constraints** (budget and other preferences).
 - Attempt to **maximize experience value** (number/quality of sights/activities).
-- Try to **minimize total cost**.
+- Stay within **specified budget**.
 
-Ideas we are exploring:
+Planned techniques (TBD)
 
 - Heuristic or game-tree style search over possible itineraries  
 - Monte Carlo tree search to simulate and evaluate many possible itineraries  
@@ -85,13 +80,28 @@ This may evolve as we implement, but our current plan:
 ```text
 trip-itinerary-optimizer/
 ├── data/                   # Raw / processed travel data
-├── notebooks/              # Experiments and prototyping
 ├── src/
 │   ├── retrieval/          # IR & similarity code (Part 1)
-│   ├── optimization/       # Itinerary optimization (Part 2)
+│   ├── optimizer/          # Itinerary optimization (Part 2)
 │   ├── models/             # ML models, embeddings, etc.
+│   ├── main/               # Prompt for user query and generating itinerary
 │   ├── interface/          # CLI / web frontend
 │   └── utils/              # Shared helpers
 ├── tests/                  # Unit tests
-├── README.md               # (this file)
+├── README.md               # This file
 └── requirements.txt        # Python dependencies
+```
+
+---
+
+## Prerequisites
+• Python 3.11 is required
+## Installing
+Clone the repo on your machine
+```
+git clone https://github.com/raissaji/trip-itinerary-optimizer.git
+```
+Install requirements
+```
+pip install -r requirements.txt
+```
