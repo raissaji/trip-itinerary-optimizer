@@ -1,7 +1,7 @@
 from typing import List, Set, Tuple
 import pandas as pd
 import re
-from data_loader import hotel_text
+from retrieval import hotel_text
 
 WORD_RE = re.compile(r"[a-zA-Z]+")
 
