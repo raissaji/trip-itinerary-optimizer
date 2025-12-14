@@ -113,8 +113,8 @@ To run our program, run the following commands from the src directory:
 pip install streamlit
 streamlit run web_app.py
 ```
-Then open the local URL Streamlit prints (usually http://localhost:8502/).
-```
+Then open the local URL Streamlit prints (usually http://localhost:8502/). Run!
+
 
 
 
