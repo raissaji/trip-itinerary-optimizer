@@ -25,15 +25,15 @@ The project is split into two main parts:
 
 ## Part 1: Information Retrieval
 
-Given a user query with `4` features (accommodation style, activities, food preferences, budget range), we:
+Given a user query with `4` features (accommodation style, accomodation budget, activities, activity budget, food preferences, food budget), we:
 
-1. Embed the query and datasets as vectors.
-2. Compute similarity between the query and datasets.
-3. Return the most relevant options, above an arbitrary threshold, to feed into the optimization stage.
+1. Embed the query and datasets as vectors. (note: we don't use embeddings for jaccard similarity) 
+3. Compute similarity between the query and datasets. (compare embeddings for cosine similarity, compare query tokens and document tokens for jaccard similarity) 
+4. Return the most relevant options, above an arbitrary threshold, to feed into the optimization stage.
 
 Planned AI/ML tools and frameworks:
 
-- Text preprocessing and vectorization using Sentence-BERT (SBERT)
+-  Use Sentence-BERT (SBERT) to encode query and documents into embeddings. 
 - Similarity measures:
   - Jaccard similarity
   - Cosine similarity
@@ -52,13 +52,7 @@ Once we have a set of candidate trip options, we want to construct **day-by-day 
 - Attempt to **maximize experience value** (number/quality of sights/activities).
 - Stay within **specified budget**.
 
-Planned techniques (TBD)
-
-- Heuristic or game-tree style search over possible itineraries  
-- Monte Carlo tree search to simulate and evaluate many possible itineraries  
-- Linear / integer programming formulations (e.g., select a subset of activities and assign them to time slots subject to constraints)
-
-The output will be one or more **ranked itineraries** that the user can inspect and compare.
+Our technique: rank reccomendations by difference between item's budget and user's maximum budget. Smaller differences have higher ranking. 
 
 ---
 
@@ -72,22 +66,27 @@ This may evolve as we implement, but our current plan:
   - `scikit-learn` – vectorization, SVD, KNN, etc.
   - `scipy` / optimization libraries – possible LP/heuristic implementations
 - **Frontend:** simple web or notebook-based interface to enter preferences and view itineraries
+  - streamlit
 
 ---
 
-## 📁 Project Structure (Tentative)
+## 📁 Project Structure
 
 ```text
 trip-itinerary-optimizer/
-├── data/                   # Raw / processed travel data
+├── data/                   # Raw / processed travel data      
+│   ├── accomodations.csv
+│   ├── activites.csv
+│   ├── food.csv
 ├── src/
-│   ├── retrieval/          # IR & similarity code (Part 1)
-│   ├── optimizer/          # Itinerary optimization (Part 2)
-│   ├── models/             # ML models, embeddings, etc.
-│   ├── main/               # Prompt for user query and generating itinerary
-│   ├── interface/          # CLI / web frontend
-│   └── utils/              # Shared helpers
-├── tests/                  # Unit tests
+│   ├── df_operations.py       # operations for processing dataframes(Part 1)
+│   ├── jaccard_retrieval.py   # KNN search & compute jaccard similarity (Part 1)
+│   ├── cosine_retrieval.py    # KNN search & compute cosine similarity  (Part 1)
+│   ├── ranking.py             # optimize itinerary using budget (Part 2)
+│   ├── llm_generation.py      #construct LLM prompt and generate response (part 2) 
+│   ├── main.py                # Prompt for user query, facilitate overall process of info retrieval, budget optimization, building itinerary, generating and feeding LLM prompt
+│   ├── interface2.py          # actual web frontend 
+│   ├── interface1.py          # old frontend
 ├── README.md               # This file
 └── requirements.txt        # Python dependencies
 ```
