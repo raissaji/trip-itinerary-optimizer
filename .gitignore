@@ -9,3 +9,8 @@ __pycache__/
 # OS / editor junk
 .DS_Store
 .history/
+*.gguf
+tinyllama-1b-chat-v0.3.Q4_K_M.gguf
+*.gguf
+.env
+.history/
