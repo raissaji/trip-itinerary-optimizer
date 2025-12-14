@@ -97,11 +97,25 @@ trip-itinerary-optimizer/
 ## Prerequisites
 • Python 3.11 is required
 ## Installing
-Clone the repo on your machine
+1) Clone the repo on your machine
 ```
 git clone https://github.com/raissaji/trip-itinerary-optimizer.git
 ```
-Install requirements
+2) Install requirements
 ```
 pip install -r requirements.txt
 ```
+3) We use the TinyLlama-1.1B-Chat-v0.3 model, a surprisingly capable small model with 1.1B parameters (takes 0.7-0.8 GB of memory) and could run on CPU. Install the tinyllama model on your local directory with the following command: 
+```
+wget https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v0.3-GGUF/resolve/main/tinyllama-1.1b-chat-v0.3.Q4_K_M.gguf
+```
+To run our program, run the following commands from the src directory:
+```
+pip install streamlit
+streamlit run web_app.py
+```
+Then open the local URL Streamlit prints (usually http://localhost:8502/).
+```
+
+
+
